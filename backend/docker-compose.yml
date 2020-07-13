@@ -6,7 +6,7 @@ services:
     env_file:
       - bdd.env
     volumes:
-      - cash_data:/var/lib/postgresql/data
+      - user_data:/var/lib/postgresql/data
     restart: unless-stopped
 
   maven:
@@ -25,12 +25,10 @@ services:
       - bdd.env
     volumes:
       - jar_dir:/dist
-      - apk_dir:/apk
     ports:
-      - "8090:8080"
+      - "8078:8080"
 
 volumes:
-  cash_data:
+  user_data:
   mvn_cache:
   jar_dir:
-  apk_dir:

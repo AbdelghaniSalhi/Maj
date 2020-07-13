@@ -1,0 +1,1 @@
+Main-Class: com.epitech.cashmanager.CashManagerApplication

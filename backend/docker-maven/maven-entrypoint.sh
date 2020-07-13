@@ -3,4 +3,4 @@
 set -xe
 
 mvn package && \
-mv /usr/src/app/target/MAJ-1.0-SNAPSHOT.jar /dist/MAJ-1.0-SNAPSHOT.jar
+mv /usr/src/app/target/Auth-1.0-SNAPSHOT.jar /dist/Auth-1.0-SNAPSHOT.jar

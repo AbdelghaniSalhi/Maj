@@ -27,6 +27,21 @@ up() {
   restart
 }
 
+deploy() {
+  cd ~/Cash_Manager_Back
+  git pull
+  up
+}
+
+apk() {
+  if [ ! -d "../Cash_Manager_Front" ]; then
+    echo "Folder cash manager doesn't exists! Downloading..."
+    git clone git@github.com:Arnoways/Cash_Manager_Front.git ../Cash_Manager_Front || git clone https://github.com/Arnoways/Cash_Manager_Front.git ../Cash_Manager_Front
+  fi
+  docker-compose build gradle
+  docker-compose up gradle
+}
+
 help() {
   echo "usage: ./cm_back.sh [option]"
   echo "available options:"
@@ -46,6 +61,6 @@ if [ $# -eq 0 ]
 fi
 
 case $1 in
-  build|restart|logs|clear|up|help) $1;;
+  build|restart|logs|clear|up|help|deploy|apk) $1;;
   *) help;;
 esac
